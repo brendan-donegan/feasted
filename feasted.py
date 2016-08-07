@@ -1,20 +1,27 @@
 #!/usr/bin/python3
 
-from flask import (
-    Flask,
-    request,
-)
+import flask
+from flask.ext.script import Manager
+from flask.ext.bootstrap import Bootstrap
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
+manager = Manager(app)
+bootstrap = Bootstrap(app)
 
 @app.route('/')
 def index():
-    user_agent = request.headers.get('User-Agent')
-    return '<h1>Feasted</h1>{}'.format(user_agent)
+    user_agent = flask.request.headers.get('User-Agent')
+    return flask.render_template('index.html', user_agent=user_agent)
 
 @app.route('/user/<name>')
 def user(name):
-    return "<h1>{}'s recipes</h1>".format(name)
+    if name not in ['Tyler', 'Brendan']:
+        flask.abort(404)
+    return flask.render_template('user.html', name=name)
+
+@app.route('/help')
+def help():
+    return flask.render_template('help.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    manager.run()
