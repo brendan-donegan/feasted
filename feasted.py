@@ -24,9 +24,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = flask.Flask(__name__)
 app.config['SECRET_KEY'] = 'flotsam&jetsom'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(
-    basedir, 'feasted.sqlite'
-)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://dghfuqmyebssye:PzwnEwijNWlSyq6a6HNSjBMP8T@ec2-23-23-208-32.compute-1.amazonawscom:5432/dea6g6c5r1ostb'
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 
 bootstrap = Bootstrap(app)
