@@ -14,7 +14,6 @@ Mako==1.0.4
 MarkupSafe==0.23
 numpy==1.11.1
 oauth==1.0.1
-pkg-resources==0.0.0
 python-editor==1.0.1
 PyYAML==3.11
 scipy==0.18.0
