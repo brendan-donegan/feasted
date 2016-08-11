@@ -14,7 +14,6 @@ def create_app(config_name):
     config[config_name].init_app(app)
     bootstrap.init_app(app)
     db.init_app(app)
-    import pdb; pdb.set_trace()
     from app.main import main as main_bp
     app.register_blueprint(main_bp)
     return app
