@@ -26,3 +26,7 @@ def index():
         known=session.get('known'),
         user_agent=user_agent,
     )
+
+@main.route('/help')
+def help():
+    return render_template('help.html')
